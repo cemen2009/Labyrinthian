@@ -11,9 +11,10 @@ public class CharacterCamera : MonoBehaviour
     // input varuables
     float mouseHorizontal, mouseVertical;
 
-    float cameraRotationX, cameraRotationY;
+    Vector3 cameraRotation = Vector3.zero;
+    //float cameraRotationX, cameraRotationY;
 
-    public bool invertedRotation;
+    public bool invertedVerticalRotation;
 
     private void Start()
     {
@@ -27,17 +28,17 @@ public class CharacterCamera : MonoBehaviour
         // TODO: check gameflow state
 
         // get input data
-        mouseHorizontal = Input.GetAxis("Mouse X") * horizontalSensetivity;
-        mouseVertical = Input.GetAxis("Mouse Y") * verticalSensetivity;
+        mouseHorizontal = Input.GetAxis("Mouse X") * horizontalSensetivity * Time.deltaTime;
+        mouseVertical = Input.GetAxis("Mouse Y") * verticalSensetivity * Time.deltaTime;
 
         // change rotation of object according to axis of it's transform
-        cameraRotationY += invertedRotation ? mouseHorizontal : -mouseHorizontal;
-        cameraRotationX -= invertedRotation ? mouseVertical : -mouseVertical;
+        cameraRotation.y +=  mouseHorizontal;
+        cameraRotation.x -= invertedVerticalRotation ? -mouseVertical : mouseVertical;
         
         // clamp X rotation so player can't make 360 vertical rotation
-        cameraRotationX = Mathf.Clamp(cameraRotationX, -90, 90);
+        cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90, 90);
 
-        transform.rotation = Quaternion.Euler(cameraRotationX, cameraRotationY, 0);
-        orientation.rotation = Quaternion.Euler(cameraRotationX, 0, 0);
+        transform.rotation = Quaternion.Euler(cameraRotation);
+        orientation.rotation = Quaternion.Euler(cameraRotation.x, 0, 0);
     }
 }
