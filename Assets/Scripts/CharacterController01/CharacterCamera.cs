@@ -39,6 +39,6 @@ public class CharacterCamera : MonoBehaviour
         cameraRotation.x = Mathf.Clamp(cameraRotation.x, -90, 90);
 
         transform.rotation = Quaternion.Euler(cameraRotation);
-        orientation.rotation = Quaternion.Euler(cameraRotation.x, 0, 0);
+        orientation.rotation = Quaternion.Euler(0, cameraRotation.y, 0);
     }
 }

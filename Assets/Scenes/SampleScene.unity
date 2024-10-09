@@ -237,6 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 194703123}
   - component: {fileID: 194703124}
+  - component: {fileID: 194703125}
   m_Layer: 0
   m_Name: CharacterController01
   m_TagString: Untagged
@@ -271,7 +272,7 @@ Rigidbody:
   m_GameObject: {fileID: 194703122}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -289,6 +290,26 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &194703125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194703122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b30b92fcb29354c8d1c0c8776c0d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 25
+  jumpForce: 2
+  jumpCooldown: 0.25
+  airMultiplier: 0.3
+  orientation: {fileID: 1757230499}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &286494272
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,13 +396,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286494272}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.97276986, z: -0, w: 0.23177312}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 846857203}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 153.197, z: 0}
 --- !u!114 &286494276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,7 +646,7 @@ Transform:
   m_GameObject: {fileID: 846857202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.76, y: 2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
